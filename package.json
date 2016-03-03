@@ -1,0 +1,15 @@
+{
+  "name": "sn0ggerbot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Taylor Growden",
+  "license": "MIT",
+  "dependencies": {
+    "discord.io": "^1.8.1",
+    "lodash": "~4.6.1"
+  }
+}
