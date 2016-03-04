@@ -1,4 +1,5 @@
 module.exports = function(bot, config, prompts) {
+  var commands = require('./commands');
   var callResponse = function(message, prompt) {
     var call = prompt.words;
     var response = prompt.responses;
@@ -13,7 +14,7 @@ module.exports = function(bot, config, prompts) {
     //console.log("Message: " + JSON.stringify(rawEvent, null, 2));
     var msgArr = message.split(' ');
     if (bot.isAdmin(userID, rawEvent)) {
-      if (msgArr[0] == '/botadmin'){
+      /*if (msgArr[0] == '/botadmin'){
         bot.addAdmin(rawEvent.d.mentions[0].id);
       }
       if (msgArr[0] == "/booty") {
@@ -21,6 +22,9 @@ module.exports = function(bot, config, prompts) {
       }
       if (msgArr[0] == "/cena" || msgArr[0] == "/jc") {
         bot.playTrack('cena.mp3');
+      }*/
+      if (commands.hasOwnProperty(msgArr[0])) {
+        commands[msgArr[0]].action(user, userID, channelID, message, rawEvent);
       }
     }
     var list = prompts.swear; //define key to look for
