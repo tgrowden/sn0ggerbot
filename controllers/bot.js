@@ -13,4 +13,9 @@ module.exports = function(bot, config, prompts) {
     console.log("Bot disconnected");
     bot.connect(); //Auto reconnect
   });
+  if (config.debug) {
+    bot.on("debug", function(data) {
+      console.log(JSON.stringify(data, null, 2));
+    });
+  }
 };

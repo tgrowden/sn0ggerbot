@@ -10,8 +10,12 @@ module.exports = function(bot, config, prompts) {
     }
   };
   bot.on('message', function(user, userID, channelID, message, rawEvent) {
+    //console.log("Message: " + JSON.stringify(rawEvent, null, 2));
     var msgArr = message.split(' ');
-    if (bot.isAdmin(userID)) {
+    if (bot.isAdmin(userID, rawEvent)) {
+      if (msgArr[0] == '/botadmin'){
+        bot.addAdmin(rawEvent.d.mentions[0].id);
+      }
       if (msgArr[0] == "/booty") {
         bot.playTrack('booty.mp3');
       }
