@@ -1,4 +1,7 @@
 node_modules
-config/config.js
 tenc
+config/config.js
 config/admins.json
+server_info/Channels.json
+server_info/Roles.json
+server_info/Users.json

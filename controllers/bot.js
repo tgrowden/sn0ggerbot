@@ -1,5 +1,6 @@
 module.exports = function(bot, config, prompts) {
   //bot connect
+  var fs = require('fs');
   bot.on("ready", function(rawEvent) {
     console.log("Connected!");
     console.log("Logged in as: ");
@@ -8,6 +9,7 @@ module.exports = function(bot, config, prompts) {
       to: config.channel,
       message: "Sup bitches?"
     });
+    bot.logInfo(rawEvent);
   });
   bot.on("disconnected", function() {
     console.log("Bot disconnected");
