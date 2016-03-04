@@ -9,7 +9,7 @@ module.exports = function(bot, config, prompts) {
       to: config.channel,
       message: "Sup bitches?"
     });
-    bot.logInfo(rawEvent);
+    bot.logInfo(rawEvent); //Custom helper to log server info and make server owner a bot admin
   });
   bot.on("disconnected", function() {
     console.log("Bot disconnected");

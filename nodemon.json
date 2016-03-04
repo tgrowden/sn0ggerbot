@@ -1,0 +1,7 @@
+{
+  "restartable": "rs",
+  "ignore": ["config/admins.json", "server_info/*", "tenc"],
+  "events": {
+    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  }
+}
