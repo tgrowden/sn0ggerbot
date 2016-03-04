@@ -1,5 +1,5 @@
 module.exports = function(bot, config, prompts) {
-  var commands = require('./commands');
+  var commands = require('../commands');
   var callResponse = function(message, prompt) {
     var call = prompt.words;
     var response = prompt.responses;
