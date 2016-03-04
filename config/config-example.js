@@ -1,5 +1,9 @@
 module.exports = {
   email: "foo@bar.com",
   password: "foobar",
-  channel: "8675309"
+  channel: "",
+  server: '',
+  voiceChannel: '',
+  botAdminRole: '',
+  debug: false
 };
