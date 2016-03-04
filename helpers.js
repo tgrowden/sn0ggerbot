@@ -1,4 +1,6 @@
 module.exports = function(bot) {
+  var fs = require('fs');
+  var config = require('./config/config');
   bot.deleteMessages = function(channelID) {
     bot.getMessages({
       channel: channelID,
@@ -66,5 +68,31 @@ module.exports = function(bot) {
       }, interval);
     }
     _sendFiles();
+  };
+  bot.addAdmin = function(userID){
+    var admins = JSON.parse(fs.readFileSync('./config/admins.json', 'utf8'));
+    admins[userID] = true;
+    var Admins = JSON.stringify(admins, null, 2);
+    fs.writeFile('./config/admins.json', Admins, function(err) {
+      if (err) {
+        return console.log(err);
+      }
+      console.log('Admins updated');
+    });
+  };
+  bot.isAdmin = function(userID){
+    var admins = JSON.parse(fs.readFileSync('./config/admins.json', 'utf8'));
+    if (admins[userID]){
+      return true;
+    } else {
+      return false;
+    }
+  };
+  bot.playTrack = function(track){
+    bot.joinVoiceChannel(config.voiceChannel, function() {
+      bot.getAudioContext(config.voiceChannel, function(stream){
+        stream.playAudioFile('./audio/' + track);
+      });
+    });
   };
 };

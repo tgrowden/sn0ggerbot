@@ -1,3 +1,4 @@
 node_modules
 config/config.js
 tenc
+config/admins.json

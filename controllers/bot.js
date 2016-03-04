@@ -8,11 +8,6 @@ module.exports = function(bot, config, prompts) {
       to: config.channel,
       message: "Sup bitches?"
     });
-    bot.joinVoiceChannel(config.voiceChannel, function() {
-      bot.getAudioContext(config.voiceChannel, function(stream){
-        stream.playAudioFile('./audio/cena.mp3');
-      });
-    });
   });
   bot.on("disconnected", function() {
     console.log("Bot disconnected");
