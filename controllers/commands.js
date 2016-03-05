@@ -24,6 +24,18 @@ module.exports = function(bot, config, prompts) {
         });
       } else if (bot.commands.hasOwnProperty(msgArr[0])) {
         bot.commands[msgArr[0]].action(user, userID, channelID, message, rawEvent);
+      }else if (bot.ownerCommands.hasOwnProperty(msgArr[0])) {
+        bot.sendMessage({
+          to: channelID,
+          message: "I'm sorry, Dave, I'm afraid I can't do that."
+        });
+      }
+    } else {
+      if (msgArr[0] == '/help' || bot.commands.hasOwnProperty(msgArr[0]) || bot.ownerCommands.hasOwnProperty(msgArr[0])) {
+        bot.sendMessage({
+          to: channelID,
+          message: "I'm sorry, Dave, I'm afraid I can't do that."
+        });
       }
     }
   });

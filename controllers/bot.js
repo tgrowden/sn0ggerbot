@@ -5,6 +5,7 @@ module.exports = function(bot, config, prompts) {
     console.log("Connected!");
     console.log("Logged in as: ");
     console.log(bot.username + " - (" + bot.id + ")");
+    bot.joinVoiceChannel(config.voiceChannel, function() {});
     bot.logInfo(rawEvent); //Custom helper to log server info and make server owner a bot admin
   });
   bot.on("disconnected", function() {
