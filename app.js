@@ -10,6 +10,7 @@ var bot = new DiscordClient({
 });
 require('./lib/helpers')(bot);
 require('./lib/commands')(bot, config);
+require('./lib/owner-commands')(bot, config);
 // Loader to use all controllers
 var normalizeControllers = require('path').join(__dirname, "controllers");
 require('fs').readdirSync(normalizeControllers).forEach(function(file) {

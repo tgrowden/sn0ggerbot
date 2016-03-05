@@ -22,7 +22,7 @@ module.exports = function(grunt) {
           dot: true,
           dest: 'server_info/', // destination folder
           src: [
-            'Channels-example.json', 'Roles-example.json', 'Users-example.json'
+            'Channels-example.json', 'Roles-example.json', 'Users-example.json', 'Owner.json'
           ],
           rename: function(dest, src) {
             return dest + src.replace('-example.json','.json');
