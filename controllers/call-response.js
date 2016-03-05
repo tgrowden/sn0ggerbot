@@ -1,4 +1,5 @@
 module.exports = function(bot, config, prompts) {
+  var _ = require('lodash');
   var callResponse = function(message, prompt) {
     var call = prompt.words;
     var response = prompt.responses;
@@ -12,7 +13,13 @@ module.exports = function(bot, config, prompts) {
   bot.on('message', function(user, userID, channelID, message, rawEvent) {
     var msgArr = message.split(' ');
     if (bot.isAdmin(userID, rawEvent)) {
-      if (bot.commands.hasOwnProperty(msgArr[0])) {
+      if (msgArr[0] == '/help'){
+        var keys = _.keys(bot.commands);
+        bot.sendMessage({
+          to: channelID,
+          message: "Commands: \n" + keys.join("\n")
+        });
+      } else if (bot.commands.hasOwnProperty(msgArr[0])) {
         bot.commands[msgArr[0]].action(user, userID, channelID, message, rawEvent);
       }
     }
