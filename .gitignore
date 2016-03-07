@@ -6,3 +6,5 @@ server_info/Channels.json
 server_info/Roles.json
 server_info/Users.json
 server_info/Owner.json
+.sync-config.cson
+audio
