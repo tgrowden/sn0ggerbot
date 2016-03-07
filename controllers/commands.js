@@ -24,7 +24,7 @@ module.exports = function(bot, config, prompts) {
         });
       } else if (bot.commands.hasOwnProperty(msgArr[0])) {
         bot.commands[msgArr[0]].action(user, userID, channelID, message, rawEvent);
-      }else if (bot.ownerCommands.hasOwnProperty(msgArr[0])) {
+      }else if (bot.ownerCommands.hasOwnProperty(msgArr[0]) && !bot.isOwner(userID)) {
         bot.sendMessage({
           to: channelID,
           message: "I'm sorry, Dave, I'm afraid I can't do that."
