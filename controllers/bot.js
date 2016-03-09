@@ -7,20 +7,6 @@ module.exports = function(bot, config, prompts) {
     console.log(bot.username + " - (" + bot.id + ")");
     bot.joinVoiceChannel(config.voiceChannel, function() {});
     bot.logInfo(rawEvent); //Custom helper to log server info and make server owner a bot admin
-    if (config.ttsAlerts) {
-      bot.on('presence', function(user, userID, status, gameName, rawEvent) {
-        bot.sendMessage({
-          to: config.channel,
-          message: user + " is now " + status,
-          tts: true //Optional
-        }, function(error, response) {
-          bot.deleteMessage({
-            channel: response.channel_id,
-            messageID: response.id
-          });
-        });
-      });
-    }
   });
   bot.on("disconnected", function() {
     console.log("Bot disconnected");
