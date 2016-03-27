@@ -9,7 +9,7 @@
   "author": "Taylor Growden",
   "license": "MIT",
   "dependencies": {
-    "discord.io": "^1.8.1",
+    "discord.io": "^1.8.3",
     "forecast": "^0.2.1",
     "fs": "0.0.2",
     "grunt": "^0.4.5",
